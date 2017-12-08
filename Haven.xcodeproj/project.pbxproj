@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		034B84CA1FDA77DE0055B284 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B84C91FDA77DE0055B284 /* UIColor+Extensions.swift */; };
+		034B84CD1FDA79A10055B284 /* SelectionWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B84CC1FDA79A10055B284 /* SelectionWheel.swift */; };
 		039E06361FD8910B00EA3A41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039E06351FD8910B00EA3A41 /* AppDelegate.swift */; };
 		039E06381FD8910B00EA3A41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039E06371FD8910B00EA3A41 /* ViewController.swift */; };
 		039E063B1FD8910B00EA3A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039E06391FD8910B00EA3A41 /* Main.storyboard */; };
 		039E063D1FD8910B00EA3A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 039E063C1FD8910B00EA3A41 /* Assets.xcassets */; };
 		039E06401FD8910B00EA3A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 039E063E1FD8910B00EA3A41 /* LaunchScreen.storyboard */; };
+		03C8FE541FD8963500E88058 /* NightLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8FE521FD8963500E88058 /* NightLightViewController.swift */; };
+		03C8FE551FD8963500E88058 /* NightLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C8FE531FD8963500E88058 /* NightLightViewController.xib */; };
+		05A59FD041689E9EB17B995A /* Pods_Haven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC8A416901A12F6AAD4B07F /* Pods_Haven.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		034B84C91FDA77DE0055B284 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		034B84CC1FDA79A10055B284 /* SelectionWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionWheel.swift; sourceTree = "<group>"; };
 		039E06321FD8910B00EA3A41 /* Haven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haven.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		039E06351FD8910B00EA3A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		039E06371FD8910B00EA3A41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,11 @@
 		039E063C1FD8910B00EA3A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		039E063F1FD8910B00EA3A41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		039E06411FD8910B00EA3A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C8FE521FD8963500E88058 /* NightLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightLightViewController.swift; sourceTree = "<group>"; };
+		03C8FE531FD8963500E88058 /* NightLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NightLightViewController.xib; sourceTree = "<group>"; };
+		2DC8A416901A12F6AAD4B07F /* Pods_Haven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		965AE7ADDD59BB89EF00AF98 /* Pods-Haven.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haven.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haven/Pods-Haven.debug.xcconfig"; sourceTree = "<group>"; };
+		BEA7A38CC303CF21EF9A01E5 /* Pods-Haven.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haven.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haven/Pods-Haven.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A59FD041689E9EB17B995A /* Pods_Haven.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034B84CB1FDA79520055B284 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				034B84CC1FDA79A10055B284 /* SelectionWheel.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
 		039E06291FD8910A00EA3A41 = {
 			isa = PBXGroup;
 			children = (
 				039E06341FD8910B00EA3A41 /* Haven */,
 				039E06331FD8910B00EA3A41 /* Products */,
+				062F81A0AF1802E49CDC348A /* Pods */,
+				AC26873FB00306E9E06B3577 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +77,67 @@
 		039E06341FD8910B00EA3A41 /* Haven */ = {
 			isa = PBXGroup;
 			children = (
+				034B84CB1FDA79520055B284 /* CustomUI */,
+				03C8FE511FD895D900E88058 /* Nightlight */,
+				039E06471FD8916800EA3A41 /* API */,
 				039E06351FD8910B00EA3A41 /* AppDelegate.swift */,
 				039E06371FD8910B00EA3A41 /* ViewController.swift */,
 				039E06391FD8910B00EA3A41 /* Main.storyboard */,
 				039E063C1FD8910B00EA3A41 /* Assets.xcassets */,
 				039E063E1FD8910B00EA3A41 /* LaunchScreen.storyboard */,
 				039E06411FD8910B00EA3A41 /* Info.plist */,
+				034B84C91FDA77DE0055B284 /* UIColor+Extensions.swift */,
 			);
 			path = Haven;
+			sourceTree = "<group>";
+		};
+		039E06471FD8916800EA3A41 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		03C8FE511FD895D900E88058 /* Nightlight */ = {
+			isa = PBXGroup;
+			children = (
+				03C8FE571FD8967C00E88058 /* Models */,
+				03C8FE561FD8967100E88058 /* ViewControllers */,
+			);
+			path = Nightlight;
+			sourceTree = "<group>";
+		};
+		03C8FE561FD8967100E88058 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03C8FE521FD8963500E88058 /* NightLightViewController.swift */,
+				03C8FE531FD8963500E88058 /* NightLightViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03C8FE571FD8967C00E88058 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		062F81A0AF1802E49CDC348A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				965AE7ADDD59BB89EF00AF98 /* Pods-Haven.debug.xcconfig */,
+				BEA7A38CC303CF21EF9A01E5 /* Pods-Haven.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC26873FB00306E9E06B3577 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DC8A416901A12F6AAD4B07F /* Pods_Haven.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 039E06441FD8910B00EA3A41 /* Build configuration list for PBXNativeTarget "Haven" */;
 			buildPhases = (
+				087687273348ABFA40AC81E2 /* [CP] Check Pods Manifest.lock */,
 				039E062E1FD8910A00EA3A41 /* Sources */,
 				039E062F1FD8910A00EA3A41 /* Frameworks */,
 				039E06301FD8910A00EA3A41 /* Resources */,
+				F0A825071FE96005D1AF5E17 /* [CP] Embed Pods Frameworks */,
+				0D88019AD4C19FE0263ABA57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,19 +204,79 @@
 			files = (
 				039E06401FD8910B00EA3A41 /* LaunchScreen.storyboard in Resources */,
 				039E063D1FD8910B00EA3A41 /* Assets.xcassets in Resources */,
+				03C8FE551FD8963500E88058 /* NightLightViewController.xib in Resources */,
 				039E063B1FD8910B00EA3A41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		087687273348ABFA40AC81E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Haven-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D88019AD4C19FE0263ABA57 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haven/Pods-Haven-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0A825071FE96005D1AF5E17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Haven/Pods-Haven-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haven/Pods-Haven-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		039E062E1FD8910A00EA3A41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034B84CD1FDA79A10055B284 /* SelectionWheel.swift in Sources */,
+				03C8FE541FD8963500E88058 /* NightLightViewController.swift in Sources */,
 				039E06381FD8910B00EA3A41 /* ViewController.swift in Sources */,
 				039E06361FD8910B00EA3A41 /* AppDelegate.swift in Sources */,
+				034B84CA1FDA77DE0055B284 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +411,7 @@
 		};
 		039E06451FD8910B00EA3A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 965AE7ADDD59BB89EF00AF98 /* Pods-Haven.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +427,7 @@
 		};
 		039E06461FD8910B00EA3A41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEA7A38CC303CF21EF9A01E5 /* Pods-Haven.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
