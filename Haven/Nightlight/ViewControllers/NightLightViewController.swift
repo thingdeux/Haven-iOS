@@ -17,7 +17,7 @@ class NightLightViewController: UIViewController {
             guard let circle = circle else { return }
             self.view.addSubview(circle)
             circle.snp.makeConstraints({ (make) in
-                make.center.equalTo(self.view)
+//                make.center.equalTo(self.view)
             })
             
         }

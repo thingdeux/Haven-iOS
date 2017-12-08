@@ -21,10 +21,12 @@ class SelectionWheel {
     
     private init() {}
     
+    /// Create a selection circle
     static func create(size: CGSize, foreground: UIColor, background: UIColor, createdHandler: @escaping SelectionWheelCreationHandler) {
         DispatchQueue.main.async {
             do {
                 let circle = try SelectionWheel.generateWheelLayers(size: size, foreground: foreground, background: background)
+                SelectionWheel.generateLabels(on: circle)
                 createdHandler(circle)
             } catch {
                 createdHandler(nil)
@@ -59,7 +61,35 @@ class SelectionWheel {
         return circleBackground
     }
     
-    private func generateLabels() {
+    /// Generate 3 Labels - top label
+    static fileprivate func generateLabels(on baseView: UIView) {
+        let topButton = UIButton()
+        let middleLabel = UILabel()
+        let bottomButton = UIButton()
+        
+        topButton.titleLabel?.text = "+"
+        middleLabel.text = "- -"
+        bottomButton.titleLabel?.text = "-"
+        
+        baseView.addSubview(topButton)
+        baseView.addSubview(middleLabel)
+        baseView.addSubview(bottomButton)
+        
+        topButton.snp.makeConstraints { (make) in
+            make.top.equalTo(baseView.snp.top).offset(20)
+            make.bottom.equalTo(middleLabel.snp.top).offset(15)
+            make.centerY.equalTo(middleLabel.snp.centerY)
+        }
+        
+        middleLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(baseView)
+            make.bottom.equalTo(bottomButton.snp.top).offset(15)
+        }
+        
+        bottomButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(baseView.snp.bottom).offset(-20)
+            make.centerY.equalTo(middleLabel.snp.centerY)
+        }
         
     }
 }
