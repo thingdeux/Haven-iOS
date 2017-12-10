@@ -17,17 +17,26 @@ class SelectionWheel {
         // Smaller value = thicker line
         static let lineThickness: CGFloat = 0.97
     }
-    typealias SelectionWheelCreationHandler = (_ wheel: UIView?) -> Void
+    typealias SelectionWheelCreationHandler = (_ wheel: SelectionWheel?) -> Void
     
-    private init() {}
+    private(set) var baseView: UIView
+    // Hold Reference for top / bottom button
+    private var topButton: UIButton?
+    private var bottomButton: UIButton?
+    private var middleLabel: UILabel?
+    
+    private init(with base: UIView) {
+        self.baseView = base
+    }
     
     /// Create a selection circle
     static func create(size: CGSize, foreground: UIColor, background: UIColor, createdHandler: @escaping SelectionWheelCreationHandler) {
         DispatchQueue.main.async {
             do {
                 let circle = try SelectionWheel.generateWheelLayers(size: size, foreground: foreground, background: background)
-                SelectionWheel.generateLabels(on: circle)
-                createdHandler(circle)
+                let selectionWheel = SelectionWheel(with: circle)
+                selectionWheel.generateLabels(on: selectionWheel.baseView, size: size)
+                createdHandler(selectionWheel)
             } catch {
                 createdHandler(nil)
             }
@@ -62,41 +71,57 @@ class SelectionWheel {
     }
     
     /// Generate 3 Labels - top label
-    static fileprivate func generateLabels(on baseView: UIView) {
+    fileprivate func generateLabels(on baseView: UIView, size: CGSize) {
+        /*  End Results should be elements in this order.
+               +
+               6
+               -
+         */
+        
+        let elementSize = size.height / 4.0
+        
+        // Init and Add as Subview
         let topButton = UIButton()
         let middleLabel = UILabel()
         let bottomButton = UIButton()
-        
-        topButton.titleLabel?.text = "+"
-        middleLabel.text = "- -"
-        bottomButton.titleLabel?.text = "-"
-        
         baseView.addSubview(topButton)
         baseView.addSubview(middleLabel)
         baseView.addSubview(bottomButton)
         
-        topButton.snp.makeConstraints { (make) in
-            make.top.equalTo(baseView.snp.top).offset(20)
-            make.bottom.equalTo(middleLabel.snp.top).offset(15)
-            make.centerY.equalTo(middleLabel.snp.centerY)
-        }
+        topButton.setTitle("+", for: .normal)
+        middleLabel.text = "- -"
+        bottomButton.setTitle("-", for: .normal)
+        // Color
+        middleLabel.textColor = UIColor.blue
+        topButton.setTitleColor(UIColor.gray, for: .normal)
+        bottomButton.setTitleColor(UIColor.gray, for: .normal)
+        // Formatting
+        middleLabel.font = UIFont.boldSystemFont(ofSize: elementSize * 0.75)
+        topButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: elementSize * 0.85)
+        bottomButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: elementSize * 0.85)
         
         middleLabel.snp.makeConstraints { (make) in
             make.center.equalTo(baseView)
             make.bottom.equalTo(bottomButton.snp.top).offset(15)
+            make.height.equalTo(elementSize)
+        }
+        
+        topButton.snp.makeConstraints { (make) in
+            make.top.equalTo(baseView.snp.top).offset(10)
+            make.bottom.equalTo(middleLabel.snp.top).offset(15)
+            make.centerX.equalTo(middleLabel)
         }
         
         bottomButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(baseView.snp.bottom).offset(-20)
-            make.centerY.equalTo(middleLabel.snp.centerY)
+            make.bottom.equalTo(baseView.snp.bottom).offset(-10)
+            make.centerX.equalTo(middleLabel)
         }
         
+        self.topButton = topButton
+        self.bottomButton = bottomButton
+        self.middleLabel = middleLabel
     }
 }
 
 
-/*
-    +
-  [ 6 ]
-    -
-*/
+
