@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias EmptyCompletionHandler = () -> Void
+
 enum SelectionWheelError: Error {
     case sizeNotEqual
 }
@@ -25,8 +27,18 @@ class SelectionWheel {
     private var bottomButton: UIButton?
     private var middleLabel: UILabel?
     
+    private var topButtonAction: EmptyCompletionHandler?
+    private var bottomButtionAction: EmptyCompletionHandler?
+    
     private init(with base: UIView) {
         self.baseView = base
+    }
+    
+    deinit {
+        self.topButton?.removeTarget(self, action: #selector(self.upButtonTapped), for: UIControlEvents.touchUpInside)
+        self.bottomButton?.removeTarget(self, action: #selector(self.downButtonTapped), for: UIControlEvents.touchUpInside)
+        self.topButtonAction = nil
+        self.bottomButtionAction = nil
     }
     
     /// Create a selection circle
@@ -36,6 +48,9 @@ class SelectionWheel {
                 let circle = try SelectionWheel.generateWheelLayers(size: size, foreground: foreground, background: background)
                 let selectionWheel = SelectionWheel(with: circle)
                 selectionWheel.generateLabels(on: selectionWheel.baseView, size: size)
+                selectionWheel.topButton?.addTarget(selectionWheel, action: #selector(SelectionWheel.upButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+                selectionWheel.bottomButton?.addTarget(selectionWheel, action: #selector(SelectionWheel.downButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+                
                 createdHandler(selectionWheel)
             } catch {
                 createdHandler(nil)
@@ -100,6 +115,7 @@ class SelectionWheel {
         topButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: elementSize * 0.85)
         bottomButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: elementSize * 0.85)
         
+        // Constraints
         middleLabel.snp.makeConstraints { (make) in
             make.center.equalTo(baseView)
             make.bottom.equalTo(bottomButton.snp.top).offset(15)
@@ -121,7 +137,24 @@ class SelectionWheel {
         self.bottomButton = bottomButton
         self.middleLabel = middleLabel
     }
+    
+    // Internal
+    func setButtonHandlers(topButton: EmptyCompletionHandler?, bottomButton: EmptyCompletionHandler?) {
+        self.topButtonAction = topButton
+        self.bottomButtionAction = bottomButton
+    }
 }
 
-
+// MARK: Gesture Recognizer Methods
+extension SelectionWheel {
+    @objc private func upButtonTapped(_ sender: UIButton) {
+        // TODO: Selection UI Animation
+        self.topButtonAction?()
+    }
+    
+    @objc private func downButtonTapped(_ sender: UIButton) {
+        // TODO: Selection UI Animation
+        self.bottomButtionAction?()
+    }
+}
 
